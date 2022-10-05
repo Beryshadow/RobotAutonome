@@ -1,12 +1,5 @@
-/* DISCLAMER */
-// Ce code agis plus a titre de demonstration pour quelques fonctions, c'est un peu comme une librarie mais avec un exemple intégrer.
-// Le code est beaucoup plus long que nécessaire, mais cela le rend réutilisable. (Le projet aurait facilement pu prendre moin de 200 lignes)
-// Si un moteur tourne dans le mauvais sens, il suffit de rajouter un false a la declaration du moteur.
-// par exemple au lieu de Moteur_s joe(4, 7, 51) mettre Moteur_s joe(4, 7, 51, false)
-// joe est le nom du moteur, 4, 7 et 51 sont les pins de direction, d'activation, et de la limit switch respectivement, false (ou true) est le sens de rotation.
-// certaines fonctions ou methodes son marquer (unsafe), elle ne sont pas briser.
-// (unsafe) veut juste dire qu'elle pourrait avoir des comportements indésirés si certain edge case ne sont pas pris en considération.
-
+#include <Robot.h>
+#include <DFRobot_ICG20660L.h>
 /* moteur */
 #define ENABLEXY 8 // enable les moteurs
 #define GOTIMES 9  // nombre de billes à trier
@@ -526,6 +519,11 @@ Moteur_s moteur[] = {Moteur_s(3, 6, 53, false), Moteur_s(4, 7, 51, false)}; // p
 int len = *(&moteur + 1) - moteur;                                          // trouve le montant de moteurs automatiquement pas besoin de changer
 void setup()
 {
+    Serial.begin(115200);
+    while (!Serial)
+    {
+    }
+    robot.setup();
     /* Pour imprimer les erreurs*/
     Serial.begin(9600);
     /* Initialisation du sensor */
