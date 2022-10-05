@@ -26,7 +26,7 @@ private:
 
 public:
     Stepper(int stepPin, int dirPin, bool reversed);
-    void setup();            // TODO
+    void setup();
     void step(int steps);    // TODO
     void dirPin(bool dir);   // TODO
     void stepPin(bool step); // TODO
@@ -43,13 +43,13 @@ private:
     bool isReachable;
 
 public:
-    Ball(int x, int y, int xSize, int ySize, bool isReachable); // TODO
-    int getX();                                                 // TODO
-    int getY();                                                 // TODO
-    int getXSize();                                             // TODO
-    int getYSize();                                             // TODO
-    bool getIsReachable();                                      // TODO
-    bool setIsReachable(bool isReachable);                      // TODO
+    Ball(int x, int y, int xSize, int ySize, bool isReachable);
+    int getX();                            // TODO
+    int getY();                            // TODO
+    int getXSize();                        // TODO
+    int getYSize();                        // TODO
+    bool getIsReachable();                 // TODO
+    bool setIsReachable(bool isReachable); // TODO
 }
 
 class LimitSwitch
@@ -59,9 +59,9 @@ private:
     bool reversed;
 
 public:
-    LimitSwitch(int pin, bool reversed); // TODO
-    bool isPressed();                    // TODO
-    void setup();                        // TODO
+    LimitSwitch(int pin, bool reversed);
+    void setup();
+    bool isPressed();
 }
 
 class Robot

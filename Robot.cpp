@@ -109,7 +109,8 @@ Stepper::Stepper(int stepPin, int dirPin, bool reversed) : stepPin(stepPin), dir
 
 Stepper::setup()
 {
-    // TODO
+    pinMode(stepPin, OUTPUT);
+    pinMode(dirPin, OUTPUT);
 }
 
 Stepper::step(int steps)
@@ -167,21 +168,16 @@ Ball::setIsReachable(bool isReachable)
 
 //-----------------------------------------------------------------------------
 
-LimitSwitch::LimitSwitch(int pin) : pin(pin){};
+LimitSwitch::LimitSwitch(int pin, bool reversed) : pin(pin), reversed(reversed){};
 
 LimitSwitch::setup()
 {
-    // TODO
-}
-
-LimitSwitch::getPin()
-{
-    // TODO
+    pinMode(pin, INPUT);
 }
 
 LimitSwitch::isPressed()
 {
-    // TODO
+    return reversed ? !digitalRead(pin) : digitalRead(pin);
 }
 
 //-----------------------------------------------------------------------------
